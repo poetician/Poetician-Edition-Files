@@ -1,0 +1,9 @@
+#!/bin/sh
+
+DIR="/home/poetician/Pictures/wallpapers"
+
+WAL="$(ls $DIR/*.jpg | shuf -n1)"
+
+cat $WAL > /home/poetician/.config/wallpaper.jpg
+
+feh --bg-scale /home/poetician/.config/wallpaper.jpg
