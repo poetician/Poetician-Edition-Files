@@ -1,6 +1,6 @@
 # Poetician-Edition-Files
-Files that make their way into most of my configs
+Files that belong to my i3 configuration.
 
-.spectrwm.conf and baraction.sh are works in progress. The former I can get a handle on. The latter is over my head, so I'll learn by tutorials others provide. It's not priority, just a hobby.
+exit.sh and picom-toggle.sh belong in the ~/.config/i3/scripts folder.
 
-The fonts need their own folder, but the repo is small.
+(.spectrwm.conf and baraction.sh are works in progress that I've included for convenience here only.)
