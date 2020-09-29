@@ -1,8 +1,6 @@
 # ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸
 #ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
 
-# All the world's problems can be solved in a garden - Geoff Lawton
-# https://www.youtube.com/channel/UCmP5yzI3bT4EP5lyitpor8w
 # https://thenextpoetician.blogspot.com/
 # https://pastebin.com/u/poetician
 
@@ -69,13 +67,9 @@ bindsym $mod+q kill
 bindsym --release $mod+Escape exec xkill
 
 # Lockscreen, Logout, Reboot, etc ...
-
-  bindsym $mod+x exec arcolinux-logout
-  bindsym $mod+Shift+x exec betterlockscreen -l dim
-  bindsym $mod+Ctrl+x exec hefflogout
+bindsym $mod+x exec arcolinux-logout
 
 #ᰜᰜᰜᰜᰜᰜ Resize Windows ᰜᰜᰜᰜᰜᰜ#
-
 # Resizing windows with keyboard only: https://unix.stackexchange.com/q/255344/150597
 
 # Resizing by 1
@@ -84,14 +78,7 @@ bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
 
-# Resizing by 10
-bindsym $mod+Ctrl+comma resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+apostrophe resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+slash resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+period resize grow width 10 px or 10 ppt
-
 #ᰜᰜᰜᰜᰜᰜ i3 Next Gaps ᰜᰜᰜᰜᰜᰜ#
-
 # Settings for I3 next gaps https://github.com/Airblader/i3/tree/gaps-next
 
 #for_window [class="^.*"] pixel 4
@@ -132,7 +119,6 @@ popup_during_fullscreen leave_fullscreen
 #ᰜᰜᰜᰜᰜᰜ Bar and Workspace Appearance ᰜᰜᰜᰜᰜᰜ#
 
 #ᰜᰜᰜᰜᰜᰜ Bar Toggle ᰜᰜᰜᰜᰜᰜ#
-
 # Bar toggle, hide or show
 bindsym $mod+b bar mode invisible
 bindsym $mod+m  bar mode dock
@@ -189,25 +175,24 @@ title_align center
     ##STOP THEMING
 
 # #4f433f Tudor Brown #704214 Sepia         #d1bea8 Dark Vanilla #FAEBD7 Antique White
-# #c0c0c0 Silver      #899a99 Pewter        #b2beb5 Ash Grey
-# #7C0A02 #AF3F05 Barn Red    #cb410b #980E00 Sinopia       #ffa500 Orange       #ffbf00 Amber
+# #899a99 Pewter      #c0c0c0 Silver        #b2beb5 Ash Grey     #b6b9e1
+# #7C0A02 Barn Red    #AF3F05 #cb410b Sinopia #980E00            #ffa500 Orange       #ffbf00 Amber
 # #cd7f32 Bronze      #B87333 Copper        #FFD700 Gold #       #ffc87c Topaz
 # #568203 Avocado     #2e5e5b Pine          #1f3d0c Deep Forest
 # #556b2f Dark Olive  #013220 Dark Green    #006600 Pakistan
 # #ee82ee Violet      #673147 Old Mauve     #560319 Dark Scarlet
-# #000f89 Phthalo Blue#4c2882 Spanish Violet#6a5acd Slate Blue #320069 #4b0082 #8166E8 Indigo
-# #089635 #104022 #033317 #a16b1c #e69722 #f4cd52 #8446d4 #b6b9e1
+# #000f89 Phthalo Blue#4c2882 Spanish Violet#6a5acd Slate Blue #320069 #4b0082 Indigo #8166E8
+# #089635 #104022 #033317 #a16b1c #e69722 #f4cd52 #8446d4
 
 ###################################################
 #ᰜᰜᰜᰜᰜᰜ Applications and Directives ᰜᰜᰜᰜᰜᰜ#
 
-exec --no-startup-id python3 $HOME/.config/i3/i3-swallow.py
+bindsym $mod+Shift+p exec ~/.config/i3/info.sh
 
-for_window [class="Alacritty"] move scratchpad, move position 1030 405
+for_window [class="Alacritty"] floating enable, resize set 640 700, move position 1240 340
 bindsym Mod1+comma [class="Alacritty"] scratchpad show
 bindsym $mod+Return exec alacritty
 
-for_window [class="Hefftor-slick-greeter-gui.py"] floating enable
 for_window [class="Engrampa"] floating enable
 for_window [class="FSlint"] floating enable
 for_window [class="GParted"] floating enable
@@ -232,10 +217,10 @@ bindsym $mod+Shift+Return exec nemo
 
 set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
-for_window  [class="Cherrytree"] floating enable, resize set 1300 1035, move position 10 35
+for_window  [class="Cherrytree"] floating enable, resize set 1100 980, move position 20 50
 exec --no-startup-id cherrytree
 bindsym $mod+control+t exec cherrytree
-for_window [class="Xfce4-dict"] floating enable, resize set 515 950, move position 1385 70
+for_window [class="Xfce4-dict"] floating enable, resize set 480 980, move position 1180 50
 bindsym Mod1+bracketright [class="Xfce4-dict"] scratchpad show
 bindsym $mod+Ctrl+y exec xfce4-dict; focus
 
@@ -247,7 +232,6 @@ bindsym $mod+F4 exec libreoffice
 set $ws5 "5"
 assign [class="kdenlive"] $ws5
 bindsym $mod+F5 exec kdenlive
-assign [class="Shotcut"] $ws5
 
 set $ws6 "6"
 assign [class="Gimp-2.10"] $ws6
@@ -282,20 +266,20 @@ bindsym $mod+F9 exec meld
 set $ws10 "10"
 assign [class="VirtualBox|VirtualBox Manager|VirtualBox Machine"] $ws10
 for_window [class="VirtualBox Machine|VirtualBox Manager"] floating disable
-exec --no-startup-id virtualbox manager
+#exec --no-startup-id virtualbox manager
 bindsym $mod+F10 exec virtualbox manager; focus
 
 set $ws11 "11"
-assign [class="Arcolinux-tweak-tool.py|Hefftor-twm-wallpaper-changer.py"] $ws11
+assign [class="Arcolinux-tweak-tool.py|Blender"] $ws11
 for_window [class="Arcolinux-tweak-tool.py"] floating enable, move position 2000 60, resize set 840 680
-bindsym Mod1+8 [class="Arcolinux-tweak-tool.py"] scratchpad show
 bindsym control+Shift+t exec arcolinux-tweak-tool, focus
+bindsym control+Shift+b exec blender
 
 set $ws12 "12"
 assign [class="qBittorrent|Timeshift-gtk|Transmission-gtk"] $ws12
-for_window [class="Timeshift-gtk"] floating enable, move position 2000 60, resize set 800 950
-for_window [class="Transmission-gtk"] floating enable, move position 2860 60, resize set 900 480
-for_window [class="qBittorrent"] floating enable, move position 2700 60, resize set 1080 860
+for_window [class="Timeshift-gtk"] floating enable, move position 1940 60, resize set 800 950
+for_window [class="Transmission-gtk"] floating enable, move position 2820 60, resize set 900 480
+for_window [class="qBittorrent"] floating enable, move position 2780 60, resize set 1040 950
 bindsym Mod1+q exec --no-startup-id timeshift-gtk
 exec --no-startup-id qbittorrent
 
@@ -309,8 +293,10 @@ exec --no-startup-id vlc
 bindsym $mod+F3 exec vlc
 
 set $ws14 "14"
-assign [class="Gnome-boxes"] $ws14
-for_window [class="Gnome-boxes"] floating disable
+assign [class="Gnome-boxes|Virt-manager"] $ws14
+for_window [class="Gnome-boxes|Virt-machine"] floating disable; focus
+bindsym $mod+ctrl+b exec gnome-boxes
+bindsym $mod+ctrl+v exec virt-manager
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Application Launching ᰜᰜᰜᰜᰜᰜ#
@@ -362,23 +348,21 @@ for_window [class="Xfce4-taskmanager"] floating enable
 
 # Authentication dialog
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec_always --no-startup-id mousetrap -t 2
+exec nitrogen --restore
 # Num Lock activated
 exec_always --no-startup-id numlockx on
 exec killall picom &&
 exec_always --no-startup-id picom -b
-exec_always --no-startup-id mousetrap -t 1
-exec nitrogen --restore
+exec --no-startup-id python3 $HOME/.config/i3/i3-swallow.py
+exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #ᰜᰜᰜᰜᰜᰜ Scratchpad ᰜᰜᰜᰜᰜᰜ#
 
 # move the currently focused window to the scratchpad
 bindsym Mod1+Shift+slash move scratchpad
 bindsym Mod1+slash scratchpad show
-
-#ᰜᰜᰜᰜᰜᰜ System Applications ᰜᰜᰜᰜᰜᰜ#
-
-exec --no-startup-id xfce4-power-manager &
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #ᰜᰜᰜᰜᰜᰜ Tray Applications ᰜᰜᰜᰜᰜᰜ#
 
@@ -416,23 +400,15 @@ floating_modifier $mod
 bindsym control+space floating toggle
 
 # Change Focus
-bindsym $mod+$left focus left
 bindsym $mod+Left focus left
-bindsym $mod+$down focus down
 bindsym $mod+Down focus down
-bindsym $mod+$up focus up
 bindsym $mod+Up focus up
-bindsym $mod+$right focus right
 bindsym $mod+Right focus right
 
 # Move Focused Window
-bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+$right move right
 bindsym $mod+Shift+Right move right
 
 #############################################
@@ -459,10 +435,8 @@ workspace_layout default
 
 # orientation for new workspaces
 default_orientation horizontal
-
 # split in horizontal orientation
 bindsym $mod+h split h
-
 # split in vertical orientation
 bindsym $mod+v split v
 
@@ -479,7 +453,6 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
 # focus the child "HHVH"
 bindsym $mod+d focus child
 
@@ -526,8 +499,6 @@ focus_on_window_activation smart
 ######################################
 #ᰜᰜᰜᰜᰜᰜ Border Control ᰜᰜᰜᰜᰜᰜ#
 
-#border_radius 8
-
 # default_border normal | none | pixel
 default_border pixel 6
 # default_floating_border normal | none| pixel
@@ -547,6 +518,17 @@ new_window pixel 6
 
 new_float pixel 6
 # new_float normal | none
+
+##### i3-gaps ##############
+for_window [class=".*"] border pixel 6
+gaps inner 6
+gaps outer 6
+#gaps horizontal 2
+
+################# i3-radius #######################
+smart_borders on
+smart_borders no_gaps
+border_radius 11
 
 ##############################################
 #ᰜᰜᰜᰜᰜᰜ Variety for Wallpapers ᰜᰜᰜᰜᰜᰜ#
