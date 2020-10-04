@@ -8,7 +8,7 @@ cp rofi-shortcuts.conf rofi-shortcuts.sh to ~/.config/Rofi/rofi-shortcuts/
 
 Add to your ~/.config/i3/config
 
-Start Rofi with Rofi-Shortcuts
+Start Rofi with Rofi-Shortcuts (comment out)
 
 bindsym $mod+Shift+i exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 
