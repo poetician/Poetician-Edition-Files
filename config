@@ -1,19 +1,16 @@
-# ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸
+ # ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸
 #ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
 
-# https://thenextpoetician.blogspot.com/
-# https://pastebin.com/u/poetician
+# https://thenextpoetician.blogspot.com/      # https://pastebin.com/u/poetician
 
 # Developer URL:https://i3wm.org/
 # Version: 4.16.1-186-gf3fffbae (2020-03-01, branch "makepkg") © 2009 Michael Stapelberg and contributors.
 
 # Based on the work of Erik Dubois (and others):
-# https://arcolinux.info/
-# https://github.com/arcolinux
-# https://www.youtube.com/channel/UCJdmdUp5BrsWsYVQUylCMLg
+# https://arcolinux.info/ # https://github.com/arcolinux # https://www.youtube.com/channel/UCJdmdUp5BrsWsYVQUylCMLg
 
 #ᰜᰜᰜᰜᰜᰜ Key Names ᰜᰜᰜᰜᰜᰜ#
-
+# unassigned $mod+n $mod+r $mod
 # Mod = Super key / Mod4        # Control = Ctrl key            # Mod1 = Alt key
 # Shift = Shift key             # Return = Enter or Return key  # Escape = Escape key
 # Pause = Pause key             # Print = Print key             # Tab = Tab key
@@ -72,11 +69,11 @@ bindsym $mod+x exec arcolinux-logout
 #ᰜᰜᰜᰜᰜᰜ Resize Windows ᰜᰜᰜᰜᰜᰜ#
 # Resizing windows with keyboard only: https://unix.stackexchange.com/q/255344/150597
 
-# Resizing by 1
-bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
-bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
-bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
-bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
+# Resizing by 2
+bindsym $mod+Ctrl+Right resize grow width 2 px or 2 ppt
+bindsym $mod+Ctrl+Up resize shrink height 2 px or 2 ppt
+bindsym $mod+Ctrl+Down resize grow height 2 px or 2 ppt
+bindsym $mod+Ctrl+Left resize shrink width 2 px or 2 ppt
 
 #ᰜᰜᰜᰜᰜᰜ i3 Next Gaps ᰜᰜᰜᰜᰜᰜ#
 # Settings for I3 next gaps https://github.com/Airblader/i3/tree/gaps-next
@@ -88,14 +85,13 @@ smart_gaps on
 smart_borders on
 
 #ᰜᰜᰜᰜᰜᰜ Resize i3 Gaps ᰜᰜᰜᰜᰜᰜ#
-
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left current|all set|plus|minus|toggle
 
 bindsym $mod+Shift+f gaps inner all set 0; gaps outer all set 0
 bindsym $mod+Shift+s gaps inner all set 5; gaps outer all set 5
-bindsym $mod+Shift+t gaps inner all set 40; gaps outer all set 0
-bindsym $mod+Shift+a gaps inner all set 0; gaps outer all set 40
-bindsym $mod+Shift+w gaps inner all set 10; gaps outer all set 30
+bindsym $mod+Shift+t gaps inner all set 50; gaps outer all set 0
+bindsym $mod+Shift+d gaps inner all set 0; gaps outer all set 40
+bindsym $mod+Shift+w gaps inner all set 20; gaps outer all set 30
 bindsym control+Shift+minus gaps inner current minus 5
 bindsym control+Shift+o gaps outer current plus 10
 bindsym control+Shift+i gaps inner current plus 10
@@ -128,10 +124,17 @@ font pango: Federation italic 12
 title_align center
 
 # Option 1: Polybar
-# Comment out conky and remove hashtag in the next line to load Polybar; log back in to see the change.
+# Comment out the Bar section and conky, and remove hashtag in the next line to load Polybar; log back in to see the change.
   exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #bar {
+
+# Option 2 : Conky
+    # start-conky-i3statusbar.sh is started and conky will follow
+    # documentation : https://i3wm.org/docs/user-contributed/conky-i3bar.html
+    # the conky configuration is in conky-i3statusbar
+
+#	    status_command ~/.config/i3/start-conky-i3statusbar.sh
 
 #    height 28
 #    workspace_buttons yes
@@ -139,14 +142,6 @@ title_align center
 #    i3bar_command i3bar -t
 #    tray_output HDMI-A-0
 #    position top
-
-# Option 2 : Conky
-
-    # start-conky-i3statusbar.sh is started and conky will follow
-    # documentation : https://i3wm.org/docs/user-contributed/conky-i3bar.html
-    # conky configuration is in conky-i3statusbar
-
-#	    status_command ~/.config/i3/start-conky-i3statusbar.sh
 
 #    colors {
 #    background #1a000000
@@ -164,53 +159,39 @@ title_align center
     ##START THEMING
     #Theme name : Transparent Gold
 
-    # class                 border    backgr.   text    indicator child-border
-    client.placeholder      #1a000000 #000000 #281948 #00000000 #cb410b
+    # class                 border    background text    indicator child-border
+    client.placeholder      #1a000000 #000000    #281948 #00000000 #cb410b
     client.background       #000000
-    client.unfocused        #1a000000 #000000 #FFD700 #00000000 #AF3F05
-    client.focused          #1a000000 #000000 #B87333 #00000000 #704214
-    client.focused_inactive #1a000000 #000000 #4f433f #00000000 #ffbf00
-    client.urgent           #11093e   #000000 #a16b1c #000000   #8446d4
+    client.unfocused        #1a000000 #000000    #FFD700 #00000000 #AF3F05
+    client.focused          #1a000000 #000000    #B87333 #00000000 #704214
+    client.focused_inactive #1a000000 #000000    #4f433f #00000000 #ffbf00
+    client.urgent           #11093e   #000000    #a16b1c #000000   #8166E8
 
     ##STOP THEMING
 
-# #4f433f Tudor Brown #704214 Sepia         #d1bea8 Dark Vanilla #FAEBD7 Antique White
-# #899a99 Pewter      #c0c0c0 Silver        #b2beb5 Ash Grey     #b6b9e1
-# #7C0A02 Barn Red    #AF3F05 #cb410b Sinopia #980E00            #ffa500 Orange       #ffbf00 Amber
-# #cd7f32 Bronze      #B87333 Copper        #FFD700 Gold #       #ffc87c Topaz
-# #568203 Avocado     #2e5e5b Pine          #1f3d0c Deep Forest
-# #556b2f Dark Olive  #013220 Dark Green    #006600 Pakistan
-# #ee82ee Violet      #673147 Old Mauve     #560319 Dark Scarlet
-# #000f89 Phthalo Blue#4c2882 Spanish Violet#6a5acd Slate Blue #320069 #4b0082 Indigo #8166E8
-# #089635 #104022 #033317 #a16b1c #e69722 #f4cd52 #8446d4
+# #4f433f Tudor Brown  #704214 Sepia          #d1bea8 Dark Vanilla #FAEBD7 Antique White
+# #899a99 Pewter       #c0c0c0 Silver         #b2beb5 Ash Grey     #b6b9e1
+# #7C0A02 Barn Red     #cb410b Sinopia        #ffa500 Orange       #ffbf00 Amber #AF3F05 #980E00
+# #cd7f32 Bronze       #B87333 Copper         #FFD700 Gold #       #ffc87c Topaz
+# #568203 Avocado      #2e5e5b Pine           #1f3d0c Deep Forest
+# #556b2f Dark Olive   #013220 Dark Green     #006600 Pakistan
+# #ee82ee Violet       #673147 Old Mauve      #560319 Dark Scarlet
+# #000f89 Phthalo Blue #4c2882 Spanish Violet #6a5acd Slate Blue   #4b0082 Indigo #320069 #8166E8
 
 ###################################################
 #ᰜᰜᰜᰜᰜᰜ Applications and Directives ᰜᰜᰜᰜᰜᰜ#
 
-bindsym $mod+Shift+p exec ~/.config/i3/info.sh
-
-for_window [class="Alacritty"] floating enable, resize set 640 700, move position 1240 340
-bindsym Mod1+comma [class="Alacritty"] scratchpad show
-bindsym $mod+Return exec alacritty
-
-for_window [class="Engrampa"] floating enable
-for_window [class="FSlint"] floating enable
-for_window [class="GParted"] floating enable
-
-for_window [class="Gucharmap"] move scratchpad, move position 10 430,  set 640 640
-bindsym Mod1+period [class="Gucharmap"] scratchpad show
-bindsym control+Mod1+period exec gucharmap
-
 set $ws1 "1"
 assign [class="firefox|Opera"] $ws1
-for_window [class="firefox"] focus
-for_window [class="Opera"] focus
+for_window [class="firefox|Opera"] focus
 exec --no-startup-id firefox
 bindsym $mod+F1 exec firefox
 bindsym Ctrl+Mod1+o exec opera
+bindsym $mod+o exec opera
 
 set $ws2 "2"
 assign [class="Atom|Electron4|Nemo"] $ws2
+for_window [class="Nemo-terminal-prefs"] floating enable, focus
 bindsym $mod+F2 exec atom; focus
 exec --no-startup-id nemo
 bindsym $mod+Shift+Return exec nemo
@@ -219,10 +200,10 @@ set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
 for_window  [class="Cherrytree"] floating enable, resize set 1100 980, move position 20 50
 exec --no-startup-id cherrytree
-bindsym $mod+control+t exec cherrytree
+bindsym $mod+Ctrl+t exec cherrytree
 for_window [class="Xfce4-dict"] floating enable, resize set 480 980, move position 1180 50
 bindsym Mod1+bracketright [class="Xfce4-dict"] scratchpad show
-bindsym $mod+Ctrl+y exec xfce4-dict; focus
+bindsym $mod+contrl+d exec xfce4-dict; focus
 
 set $ws4 "4"
 assign [class="libreoffice"] $ws4
@@ -255,7 +236,7 @@ set $ws8 "8"
 assign [class="Audio Recorder|obs"] $ws8
 for_window [class="Audio Recorder"] floating enable, move position 2860 40
 for_window [class="obs"] focus
-bindsym Mod1+e exec obs
+bindsym control+Mod1+e exec obs
 
 set $ws9 "9"
 assign [class="Meld"] $ws9
@@ -273,7 +254,7 @@ set $ws11 "11"
 assign [class="Arcolinux-tweak-tool.py|Blender"] $ws11
 for_window [class="Arcolinux-tweak-tool.py"] floating enable, move position 2000 60, resize set 840 680
 bindsym control+Shift+t exec arcolinux-tweak-tool, focus
-bindsym control+Shift+b exec blender
+bindsym $mod+control+b exec blender
 
 set $ws12 "12"
 assign [class="qBittorrent|Timeshift-gtk|Transmission-gtk"] $ws12
@@ -295,7 +276,6 @@ bindsym $mod+F3 exec vlc
 set $ws14 "14"
 assign [class="Gnome-boxes|Virt-manager"] $ws14
 for_window [class="Gnome-boxes|Virt-machine"] floating disable; focus
-bindsym $mod+ctrl+b exec gnome-boxes
 bindsym $mod+ctrl+v exec virt-manager
 
 #############################################
@@ -307,22 +287,49 @@ bindsym $mod+g exec --no-startup-id rofi -show drun -show-icons -lines 8 -column
 bindsym $mod+F11 exec --no-startup-id rofi -show combi -show-icons -font "Federation 11"
 # Start Rofi Window Mode
 bindsym $mod+F12 exec --no-startup-id rofi -show window -show-icons -font "Federation 11"
+# Start Rofi with Rofi-Shortcuts
+bindsym $mod+control+s exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
+# Start Rofi Theme Selector
+bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
+
+# Lxappearance
+bindsym $mod+l exec lxappearance
 
 # Pamac-Manager
-for_window [class="Pamac-manager"] floating enable, resize set 900 700
+for_window [class="Pamac-manager"] floating enable, move position 510 80, resize set 900 600
 bindsym control+mod1+g exec --no-startup-id pamac-manager
-# Rofi Theme Selector
-bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
+
 # Screenshots
 bindsym Print exec --no-startup-id scrot ' -%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 bindsym Control+Print exec --no-startup-id xfce4-screenshooter
+
 # Settings
 bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
+
 # Start Xfce-appfinder
 for_window [class="Xfce4-appfinder"] floating enable
 bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
+
 # System Monitor
 bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager, focus
+for_window [class="Alacritty"] floating enable, resize set 640 700, move position 1240 340
+bindsym Mod1+comma [class="Alacritty"] scratchpad show
+bindsym $mod+Return exec alacritty
+
+for_window [class="Engrampa"] floating enable
+for_window [class="FSlint"] floating enable
+for_window [class="GParted"] floating enable
+for_window [class="Gucharmap"] move scratchpad, move position 10 430,  set 640 640
+bindsym Mod1+period [class="Gucharmap"] scratchpad show
+bindsym control+Mod1+period exec gucharmap
+
+bindsym $mod+n exec nitrogen
+for_window [class="Nitrogen"] floating enable, move position 450 50, resize set 1020 980
+bindsym control+$mod+o exec --no-startup-id oomox
+bindsym $mod+p exec peek
+bindsym $mod+r exec flameshot
+for_window [class="Arcolinux-welcome-app.py"] floating enable
+bindsym $mod+w exec arcolinux-welcome-app
 
 #########################################
 #ᰜᰜᰜᰜᰜᰜ Floating or Tiled ᰜᰜᰜᰜᰜᰜ#
@@ -350,7 +357,6 @@ for_window [class="Xfce4-taskmanager"] floating enable
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec_always --no-startup-id mousetrap -t 2
 exec nitrogen --restore
-# Num Lock activated
 exec_always --no-startup-id numlockx on
 exec killall picom &&
 exec_always --no-startup-id picom -b
@@ -358,20 +364,12 @@ exec --no-startup-id python3 $HOME/.config/i3/i3-swallow.py
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
-#ᰜᰜᰜᰜᰜᰜ Scratchpad ᰜᰜᰜᰜᰜᰜ#
-
-# move the currently focused window to the scratchpad
-bindsym Mod1+Shift+slash move scratchpad
-bindsym Mod1+slash scratchpad show
-
 #ᰜᰜᰜᰜᰜᰜ Tray Applications ᰜᰜᰜᰜᰜᰜ#
 
 # Network
 exec --no-startup-id nm-applet
 # Parcellite
 exec --no-startup-id parcellite
-# Radeon Profile
-#exec --no-startup-id radeon-profile
 # Workrave
 exec --no-startup-id workrave
 # Volume
@@ -383,12 +381,16 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id dropbox start
 # Megasync
 exec --no-startup-id megasync
-# My-Weather-Indicator
-#exec --no-startup-id my-weather-indicator
 #PyStopWatch
 exec --no-startup-id pystopwatch
 for_window [class="Pystopwatch"] move scratchpad, resize set 340 129, move position 1570 940
 bindsym Mod1+semicolon [class="Pystopwatch"] scratchpad show
+
+#ᰜᰜᰜᰜᰜᰜ Scratchpad ᰜᰜᰜᰜᰜᰜ#
+
+# move the currently focused window to the scratchpad
+bindsym Mod1+Shift+slash move scratchpad
+bindsym Mod1+slash scratchpad show
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Navigating Containers ᰜᰜᰜᰜᰜᰜ#
@@ -500,9 +502,9 @@ focus_on_window_activation smart
 #ᰜᰜᰜᰜᰜᰜ Border Control ᰜᰜᰜᰜᰜᰜ#
 
 # default_border normal | none | pixel
-default_border pixel 6
+default_border pixel 5
 # default_floating_border normal | none| pixel
-default_floating_border pixel 6
+default_floating_border pixel 5
 
 # hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders none
@@ -513,10 +515,10 @@ bindsym $mod+t border normal
 bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
-new_window pixel 6
+new_window pixel 5
 # new_window normal | new_window none
 
-new_float pixel 6
+new_float pixel 5
 # new_float normal | none
 
 ##### i3-gaps ##############
@@ -528,7 +530,7 @@ gaps outer 6
 ################# i3-radius #######################
 smart_borders on
 smart_borders no_gaps
-border_radius 11
+border_radius 18
 
 ##############################################
 #ᰜᰜᰜᰜᰜᰜ Variety for Wallpapers ᰜᰜᰜᰜᰜᰜ#
