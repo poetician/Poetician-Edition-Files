@@ -233,10 +233,11 @@ for_window [class="Google Earth Pro"] focus
 bindsym $mod+F7 exec google-earth-pro
 
 set $ws8 "8"
-assign [class="Audio Recorder|obs"] $ws8
+assign [class="Audio Recorder|obs|Oomox"] $ws8
 for_window [class="Audio Recorder"] floating enable, move position 2860 40
 for_window [class="obs"] focus
 bindsym control+Mod1+e exec obs
+bindsym $mod+control+o exec oomox-gui
 
 set $ws9 "9"
 assign [class="Meld"] $ws9
@@ -325,7 +326,6 @@ bindsym control+Mod1+period exec gucharmap
 
 bindsym $mod+n exec nitrogen
 for_window [class="Nitrogen"] floating enable, move position 450 50, resize set 1020 980
-bindsym control+$mod+o exec --no-startup-id oomox
 bindsym $mod+p exec peek
 bindsym $mod+r exec flameshot
 for_window [class="Arcolinux-welcome-app.py"] floating enable
