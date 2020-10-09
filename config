@@ -1,4 +1,4 @@
- # ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸
+# ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸
 #ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
 
 # https://thenextpoetician.blogspot.com/      # https://pastebin.com/u/poetician
@@ -10,7 +10,7 @@
 # https://arcolinux.info/ # https://github.com/arcolinux # https://www.youtube.com/channel/UCJdmdUp5BrsWsYVQUylCMLg
 
 #ᰜᰜᰜᰜᰜᰜ Key Names ᰜᰜᰜᰜᰜᰜ#
-# unassigned $mod+n $mod+r $mod
+
 # Mod = Super key / Mod4        # Control = Ctrl key            # Mod1 = Alt key
 # Shift = Shift key             # Return = Enter or Return key  # Escape = Escape key
 # Pause = Pause key             # Print = Print key             # Tab = Tab key
@@ -193,7 +193,7 @@ set $ws2 "2"
 assign [class="Atom|Electron4|Nemo"] $ws2
 for_window [class="Nemo-terminal-prefs"] floating enable, focus
 bindsym $mod+F2 exec atom; focus
-exec --no-startup-id nemo
+exec --no-startup-id nemo; focus
 bindsym $mod+Shift+Return exec nemo
 
 set $ws3 "3"
@@ -294,6 +294,8 @@ bindsym $mod+control+s exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
 # Gnome-calendar
+for_window [class="Gnome-calendar"] resize set 844 800, move position 24 54
+bindsym $mod+control+a exec gnome-calendar
 
 # Kvantum manager
 for_window [class="Kvantum Manager"] floating enable
