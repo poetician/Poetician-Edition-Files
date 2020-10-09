@@ -70,10 +70,10 @@ bindsym $mod+x exec arcolinux-logout
 # Resizing windows with keyboard only: https://unix.stackexchange.com/q/255344/150597
 
 # Resizing by 2
-bindsym $mod+Ctrl+Right resize grow width 2 px or 2 ppt
-bindsym $mod+Ctrl+Up resize shrink height 2 px or 2 ppt
-bindsym $mod+Ctrl+Down resize grow height 2 px or 2 ppt
-bindsym $mod+Ctrl+Left resize shrink width 2 px or 2 ppt
+bindsym $mod+control+Right resize grow width 2 px or 2 ppt
+bindsym $mod+control+Up resize shrink height 2 px or 2 ppt
+bindsym $mod+control+Down resize grow height 2 px or 2 ppt
+bindsym $mod+control+Left resize shrink width 2 px or 2 ppt
 
 #ᰜᰜᰜᰜᰜᰜ i3 Next Gaps ᰜᰜᰜᰜᰜᰜ#
 # Settings for I3 next gaps https://github.com/Airblader/i3/tree/gaps-next
@@ -186,7 +186,7 @@ assign [class="firefox|Opera"] $ws1
 for_window [class="firefox|Opera"] focus
 exec --no-startup-id firefox
 bindsym $mod+F1 exec firefox
-bindsym Ctrl+Mod1+o exec opera
+bindsym control+Mod1+o exec opera
 bindsym $mod+o exec opera
 
 set $ws2 "2"
@@ -200,7 +200,7 @@ set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
 for_window  [class="Cherrytree"] floating enable, resize set 1100 980, move position 20 50
 exec --no-startup-id cherrytree
-bindsym $mod+Ctrl+t exec cherrytree
+bindsym $mod+control+t exec cherrytree
 for_window [class="Xfce4-dict"] floating enable, resize set 480 980, move position 1180 50
 bindsym Mod1+bracketright [class="Xfce4-dict"] scratchpad show
 bindsym $mod+contrl+d exec xfce4-dict; focus
@@ -275,9 +275,9 @@ exec --no-startup-id vlc
 bindsym $mod+F3 exec vlc
 
 set $ws14 "14"
-assign [class="Gnome-boxes|Virt-manager"] $ws14
-for_window [class="Gnome-boxes|Virt-machine"] floating disable; focus
-bindsym $mod+ctrl+v exec virt-manager
+assign [class="Virt-manager"] $ws14
+for_window [class="Virt-machine"] floating disable; focus
+bindsym $mod+control+v exec virt-manager
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Application Launching ᰜᰜᰜᰜᰜᰜ#
@@ -292,6 +292,8 @@ bindsym $mod+F12 exec --no-startup-id rofi -show window -show-icons -font "Feder
 bindsym $mod+control+s exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 # Start Rofi Theme Selector
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
+
+# Gnome-calendar
 
 # Kvantum manager
 for_window [class="Kvantum Manager"] floating enable
@@ -321,9 +323,6 @@ for_window [class="Alacritty"] floating enable, resize set 640 700, move positio
 bindsym Mod1+comma [class="Alacritty"] scratchpad show
 bindsym $mod+Return exec alacritty
 
-for_window [class="Engrampa"] floating enable
-for_window [class="FSlint"] floating enable
-for_window [class="GParted"] floating enable
 for_window [class="Gucharmap"] move scratchpad, move position 10 430,  set 640 640
 bindsym Mod1+period [class="Gucharmap"] scratchpad show
 bindsym control+Mod1+period exec gucharmap
@@ -339,21 +338,21 @@ bindsym $mod+w exec arcolinux-welcome-app
 #ᰜᰜᰜᰜᰜᰜ Floating or Tiled ᰜᰜᰜᰜᰜᰜ#
 
 for_window [class="Create Snapshot"] floating enable
+for_window [class="Engrampa"] floating enable
 for_window [class="File-roller"] floating enable
 for_window [class="Font-manager"] floating enable
+for_window [class="FSlint"] floating enable
 for_window [class="Galculator"] floating enable
-for_window [class="Gnome-disks"] floating disable
-for_window [class="^Gnome-font-viewer$"] floating enable
+for_window [class="Gnome-calendar|Gnome-disks|^Gnome-font-viewer$"] floating enable
+for_window [class="GParted"] floating enable
 for_window [class="^Gpick$"] floating enable
 for_window [class="Grub-customizer"] floating enable
-for_window [class="Imagewriter"] floating enable
+for_window [class="Imagewriter|Usb-creator-gtk"] floating enable
 for_window [class="qt5ct|Lxappearance"] floating enable
 for_window [class="Pystopwatch"] floating enable
 for_window [class="radeon-profile"] floating enable, move position 480 80, resize set 640 900
 for_window [class="System-config-printer.py"] floating enable
-for_window [class="Usb-creator-gtk"] floating enable
-for_window [class="Xfce4-settings-manager"] floating enable
-for_window [class="Xfce4-taskmanager"] floating enable
+for_window [class="Xfce4-settings-manager|Xfce4-taskmanager"] floating enable
 
 #ᰜᰜᰜᰜᰜᰜ Loading Applications at Startup ᰜᰜᰜᰜᰜᰜ#
 
