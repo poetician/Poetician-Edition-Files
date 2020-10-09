@@ -87,26 +87,26 @@ smart_borders on
 #ᰜᰜᰜᰜᰜᰜ Resize i3 Gaps ᰜᰜᰜᰜᰜᰜ#
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left current|all set|plus|minus|toggle
 
-bindsym $mod+Shift+f gaps inner all set 0; gaps outer all set 0
-bindsym $mod+Shift+s gaps inner all set 5; gaps outer all set 5
-bindsym $mod+Shift+t gaps inner all set 50; gaps outer all set 0
-bindsym $mod+Shift+d gaps inner all set 0; gaps outer all set 40
-bindsym $mod+Shift+w gaps inner all set 20; gaps outer all set 30
-bindsym control+Shift+minus gaps inner current minus 5
-bindsym control+Shift+o gaps outer current plus 10
+bindsym control+Shift+d gaps inner all set 0; gaps outer all set 40
+bindsym control+Shift+f gaps inner all set 0; gaps outer all set 0
 bindsym control+Shift+i gaps inner current plus 10
-bindsym control+Shift+plus gaps outer current minus 5
+bindsym control+Shift+j gaps left current plus 10
+bindsym control+Shift+k gaps left current minus 10
 bindsym control+Shift+l gaps vertical current plus 10
+bindsym control+Shift+m gaps inner all set 5; gaps outer all set 5
+bindsym control+Shift+n gaps inner all set 50; gaps outer all set 0
+bindsym control+Shift+o gaps outer current plus 10
+bindsym control+Shift+minus gaps inner current minus 5
+bindsym control+Shift+plus gaps outer current minus 5
 bindsym control+Shift+comma gaps vertical current minus 5
 bindsym control+Shift+bracketleft gaps horizontal current minus 5
 bindsym control+Shift+bracketright gaps horizontal current plus 10
 bindsym control+Shift+semicolon gaps right current plus 10
 bindsym control+Shift+apostrophe gaps right current minus 10
-bindsym control+Shift+k gaps left current minus 10
-bindsym control+Shift+j gaps left current plus 10
 bindsym control+Shift+backslash gaps outer current toggle 40
-bindsym control+Shift+y gaps top current minus 20; gaps horizontal current minus 20
 bindsym control+Shift+u gaps top current plus 20; gaps horizontal all plus 20
+bindsym control+Shift+w gaps inner all set 20; gaps outer all set 30
+bindsym control+Shift+y gaps top current minus 20; gaps horizontal current minus 20
 
 # popup_during_fullscreen smart|ignore|leave_fullscreen
 popup_during_fullscreen leave_fullscreen
@@ -292,6 +292,10 @@ bindsym $mod+F12 exec --no-startup-id rofi -show window -show-icons -font "Feder
 bindsym $mod+control+s exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 # Start Rofi Theme Selector
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
+
+# Kvantum manager
+for_window [class="Kvantum Manager"] floating enable
+bindsym $mod+k exec kvantummanager
 
 # Lxappearance
 bindsym $mod+l exec lxappearance
