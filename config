@@ -6,7 +6,7 @@
 # Developer URL:https://i3wm.org/
 # Version: 4.16.1-186-gf3fffbae (2020-03-01, branch "makepkg") © 2009 Michael Stapelberg and contributors.
 
-# Based on the work of Erik Dubois (and others):
+# Derived in part from ArcoLinux default:
 # https://arcolinux.info/ # https://github.com/arcolinux # https://www.youtube.com/channel/UCJdmdUp5BrsWsYVQUylCMLg
 
 #ᰜᰜᰜᰜᰜᰜ Key Names ᰜᰜᰜᰜᰜᰜ#
@@ -18,31 +18,25 @@
 # Define the $mod variable key
 set $mod Mod4
 
-# Define the movement keys
-set $up l
-set $down k
-set $left j
-set $right semicolon
-
 #ᰜᰜᰜᰜᰜᰜ Dual Monitor Setup ᰜᰜᰜᰜᰜᰜ#
 
-set $firstMonitor HDMI-A-0
-set $secondMonitor DVI-D-0
+set $Screen1 HDMI-A-0
+set $Screen2 DVI-D-0
 
-workspace 1 output $firstMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
-workspace 5 output $firstMonitor
-workspace 6 output $firstMonitor
-workspace 7 output $firstMonitor
-workspace 8 output $firstMonitor
-workspace 9 output $secondMonitor
-workspace 10 output $secondMonitor
-workspace 11 output $secondMonitor
-workspace 12 output $secondMonitor
-workspace 13 output $secondMonitor
-workspace 14 output $secondMonitor
+workspace 1 output $Screen1
+workspace 2 output $Screen1
+workspace 3 output $Screen1
+workspace 4 output $Screen1
+workspace 5 output $Screen1
+workspace 6 output $Screen1
+workspace 7 output $Screen1
+workspace 8 output $Screen1
+workspace 9 output $Screen2
+workspace 10 output $Screen2
+workspace 11 output $Screen2
+workspace 12 output $Screen2
+workspace 13 output $Screen2
+workspace 14 output $Screen2
 
 # Use arandr for the configuration
 exec xrandr --no-startup-id --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 -mode 1920x1080 --pos 1920x0 --rotate normal
@@ -160,10 +154,10 @@ title_align center
     #Theme name : Transparent Gold
 
     # class                 border    background text    indicator child-border
-    client.placeholder      #1a000000 #000000    #281948 #00000000 #cb410b
+    client.placeholder      #1a000000 #000000    #281948 #00000000 #7f2f49
     client.background       #000000
-    client.unfocused        #1a000000 #000000    #FFD700 #00000000 #AF3F05
-    client.focused          #1a000000 #000000    #B87333 #00000000 #704214
+    client.unfocused        #1a000000 #000000    #FFD700 #00000000 #fcc48a
+    client.focused          #1a000000 #000000    #B87333 #00000000 #560319
     client.focused_inactive #1a000000 #000000    #4f433f #00000000 #ffbf00
     client.urgent           #11093e   #000000    #a16b1c #000000   #8166E8
 
@@ -236,7 +230,7 @@ set $ws8 "8"
 assign [class="Audio Recorder|obs|Oomox"] $ws8
 for_window [class="Audio Recorder"] floating enable, move position 2860 40
 for_window [class="obs"] focus
-bindsym control+Mod1+e exec obs
+bindsym $mod+F8 exec obs
 bindsym $mod+control+o exec oomox-gui
 
 set $ws9 "9"
@@ -248,7 +242,7 @@ bindsym $mod+F9 exec meld
 set $ws10 "10"
 assign [class="VirtualBox|VirtualBox Manager|VirtualBox Machine"] $ws10
 for_window [class="VirtualBox Machine|VirtualBox Manager"] floating disable
-#exec --no-startup-id virtualbox manager
+exec --no-startup-id virtualbox manager
 bindsym $mod+F10 exec virtualbox manager; focus
 
 set $ws11 "11"
@@ -273,6 +267,7 @@ for_window [class="Xscreensaver-demo"] floating enable, resize set 1420 800, mov
 for_window [class="vlc"] floating enable, move position 2170 900, resize set 1420 120
 exec --no-startup-id vlc
 bindsym $mod+F3 exec vlc
+bindsym $mod+control+x exec xscreensaver-demo
 
 set $ws14 "14"
 assign [class="Virt-manager"] $ws14
@@ -285,11 +280,11 @@ bindsym $mod+control+v exec virt-manager
 # Start drun Mode
 bindsym $mod+g exec --no-startup-id rofi -show drun -show-icons -lines 8 -columns 3 -eh 2 -width 74 -padding 200 -opacity "40"
 # Start Rofi Combi Mode
-bindsym $mod+F11 exec --no-startup-id rofi -show combi -show-icons -font "Federation 11"
+bindsym $mod+control+z exec --no-startup-id rofi -show combi -show-icons -font "Federation 11"
 # Start Rofi Window Mode
-bindsym $mod+F12 exec --no-startup-id rofi -show window -show-icons -font "Federation 11"
+bindsym $mod+control+w exec --no-startup-id rofi -show window -show-icons -font "Federation 11"
 # Start Rofi with Rofi-Shortcuts
-bindsym $mod+control+s exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
+bindsym $mod+control+r exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 # Start Rofi Theme Selector
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
@@ -309,6 +304,8 @@ for_window [class="Pamac-manager"] floating enable, move position 510 80, resize
 bindsym control+mod1+g exec --no-startup-id pamac-manager
 
 # Screenshots
+for_window [class="Shutter"] floating enable
+bindsym $mod+control+s exec shutter
 bindsym Print exec --no-startup-id scrot ' -%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 bindsym Control+Print exec --no-startup-id xfce4-screenshooter
 
@@ -535,7 +532,7 @@ gaps outer 6
 ################# i3-radius #######################
 smart_borders on
 smart_borders no_gaps
-border_radius 18
+border_radius 10
 
 ##############################################
 #ᰜᰜᰜᰜᰜᰜ Variety for Wallpapers ᰜᰜᰜᰜᰜᰜ#
