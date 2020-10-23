@@ -1,0 +1,11 @@
+##START THEMING
+#Theme name : Mtl_02
+# class                 border    background text    indicator child-border
+client.placeholder      #1a000000 #000000    #281948 #00000000 #7f2f49
+client.background       #000000
+client.unfocused        #1a000000 #000000    #FFD700 #00000000 #cfd7d7
+client.focused_inactive #1a000000 #000000    #4f433f #00000000 #9cabb2
+client.focused          #1a000000 #000000    #B87333 #00000000 #24333a
+client.urgent           #11093e   #000000    #a16b1c #000000   #8166E8
+
+##STOP THEMING
