@@ -93,6 +93,7 @@ bindsym control+Shift+o gaps outer current plus 10
 bindsym control+Shift+minus gaps inner current minus 5
 bindsym control+Shift+plus gaps outer current minus 5
 bindsym control+Shift+comma gaps vertical current minus 5
+bindsym control+Shift+period gaps vertical current plus 5
 bindsym control+Shift+bracketleft gaps horizontal current minus 5
 bindsym control+Shift+bracketright gaps horizontal current plus 10
 bindsym control+Shift+semicolon gaps right current plus 10
@@ -150,18 +151,18 @@ title_align center
 #   }
 # }
 
-    ##START THEMING
-    #Theme name : Transparent Gold
+##START THEMING
+#Theme name : Raspberry Plants
 
-    # class                 border    background text    indicator child-border
-    client.placeholder      #1a000000 #000000    #281948 #00000000 #7f2f49
-    client.background       #000000
-    client.unfocused        #1a000000 #000000    #FFD700 #00000000 #fcc48a
-    client.focused          #1a000000 #000000    #B87333 #00000000 #560319
-    client.focused_inactive #1a000000 #000000    #4f433f #00000000 #ffbf00
-    client.urgent           #11093e   #000000    #a16b1c #000000   #8166E8
+# class                 border    background text    indicator child-border
+client.placeholder      #1a000000 #000000    #281948 #00000000 #7f2f49
+client.background       #000000
+client.unfocused        #1a000000 #000000    #FFD700 #00000000 #fcc48a
+client.focused          #1a000000 #000000    #B87333 #00000000 #44283D
+client.focused_inactive #1a000000 #000000    #4f433f #00000000 #B2627C
+client.urgent           #11093e   #000000    #a16b1c #000000   #8166E8
 
-    ##STOP THEMING
+##STOP THEMING
 
 # #4f433f Tudor Brown  #704214 Sepia          #d1bea8 Dark Vanilla #FAEBD7 Antique White
 # #899a99 Pewter       #c0c0c0 Silver         #b2beb5 Ash Grey     #b6b9e1
@@ -186,7 +187,7 @@ bindsym $mod+o exec opera
 set $ws2 "2"
 assign [class="Atom|Electron4|Nemo"] $ws2
 for_window [class="Nemo-terminal-prefs"] floating enable, focus
-bindsym $mod+F2 exec atom; focus
+bindsym $mod+F2 exec atom ~/.config/i3/config; focus
 exec --no-startup-id nemo; focus
 bindsym $mod+Shift+Return exec nemo
 
@@ -227,15 +228,14 @@ for_window [class="Google Earth Pro"] focus
 bindsym $mod+F7 exec google-earth-pro
 
 set $ws8 "8"
-assign [class="Audio Recorder|obs|Oomox"] $ws8
+assign [class="Audio Recorder|obs"] $ws8
 for_window [class="Audio Recorder"] floating enable, move position 2860 40
 for_window [class="obs"] focus
 bindsym $mod+F8 exec obs
-bindsym $mod+control+o exec oomox-gui
 
 set $ws9 "9"
 assign [class="Meld"] $ws9
-for_window [class="Meld"] focus
+for_window [class="Meld"] focus, floating enable, resize set 1912 1010, move position 1924 37
 exec --no-startup-id meld
 bindsym $mod+F9 exec meld
 
@@ -247,7 +247,7 @@ bindsym $mod+F10 exec virtualbox manager; focus
 
 set $ws11 "11"
 assign [class="Arcolinux-tweak-tool.py|Blender"] $ws11
-for_window [class="Arcolinux-tweak-tool.py"] floating enable, move position 2000 60, resize set 840 680
+for_window [class="Arcolinux-tweak-tool.py"] floating enable, resize set 800 800, move position 2480 140
 bindsym control+Shift+t exec arcolinux-tweak-tool, focus
 bindsym $mod+control+b exec blender
 
@@ -256,22 +256,23 @@ assign [class="qBittorrent|Timeshift-gtk|Transmission-gtk"] $ws12
 for_window [class="Timeshift-gtk"] floating enable, move position 1940 60, resize set 800 950
 for_window [class="Transmission-gtk"] floating enable, move position 2820 60, resize set 900 480
 for_window [class="qBittorrent"] floating enable, move position 2780 60, resize set 1040 950
-bindsym Mod1+q exec --no-startup-id timeshift-gtk
+bindsym Mod1+q exec --no-startup-id sudo timeshift-gtk
 exec --no-startup-id qbittorrent
 
 set $ws13 "13"
 assign [class="vlc|Xscreensaver-demo"] $ws13
+for_window [class="Xscreensaver-demo"] floating enable, resize set 1420 800, move position 2170 60
 exec_always --no-startup-id xscreensaver
 exec --no-startup-id xscreensaver-demo
-for_window [class="Xscreensaver-demo"] floating enable, resize set 1420 800, move position 2170 60
+bindsym $mod+control+x exec xscreensaver-demo
 for_window [class="vlc"] floating enable, move position 2170 900, resize set 1420 120
 exec --no-startup-id vlc
 bindsym $mod+F3 exec vlc
-bindsym $mod+control+x exec xscreensaver-demo
 
 set $ws14 "14"
-assign [class="Virt-manager"] $ws14
+assign [class="Virt-manager|Oomox|__main__.py"] $ws14
 for_window [class="Virt-machine"] floating disable; focus
+bindsym $mod+control+o exec oomox-gui
 bindsym $mod+control+v exec virt-manager
 
 #############################################
@@ -288,50 +289,37 @@ bindsym $mod+control+r exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 # Start Rofi Theme Selector
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
-# Gnome-calendar
-for_window [class="Gnome-calendar"] resize set 844 800, move position 24 54
-bindsym $mod+control+a exec gnome-calendar
-
-# Kvantum manager
-for_window [class="Kvantum Manager"] floating enable
-bindsym $mod+k exec kvantummanager
-
-# Lxappearance
-bindsym $mod+l exec lxappearance
-
 # Pamac-Manager
 for_window [class="Pamac-manager"] floating enable, move position 510 80, resize set 900 600
 bindsym control+mod1+g exec --no-startup-id pamac-manager
+# Settings
+bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
+# System Monitor
+bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager, focus
 
-# Screenshots
+for_window [class="Alacritty"] floating enable, resize set 760 700, move position 1120 360
+bindsym Mod1+comma [class="Alacritty"] scratchpad show
+bindsym $mod+Return exec alacritty
+for_window [class="Arcolinux-welcome-app.py"] floating enable
+bindsym $mod+w exec arcolinux-welcome-app
+bindsym $mod+r exec flameshot
+for_window [class="Gnome-calendar"] resize set 844 800, move position 24 54
+bindsym $mod+control+a exec gnome-calendar
+for_window [class="Gucharmap"] move scratchpad, move position 10 430,  set 640 640
+bindsym Mod1+period [class="Gucharmap"] scratchpad show
+bindsym control+Mod1+period exec gucharmap
+for_window [class="Kvantum Manager"] floating enable
+bindsym $mod+k exec kvantummanager
+bindsym $mod+l exec lxappearance
+bindsym $mod+n exec nitrogen
+for_window [class="Nitrogen"] floating enable, move position 900 110, resize set 920 820
+bindsym $mod+p exec peek
 for_window [class="Shutter"] floating enable
 bindsym $mod+control+s exec shutter
 bindsym Print exec --no-startup-id scrot ' -%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 bindsym Control+Print exec --no-startup-id xfce4-screenshooter
-
-# Settings
-bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
-
-# Start Xfce-appfinder
 for_window [class="Xfce4-appfinder"] floating enable
 bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
-
-# System Monitor
-bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager, focus
-for_window [class="Alacritty"] floating enable, resize set 640 700, move position 1240 340
-bindsym Mod1+comma [class="Alacritty"] scratchpad show
-bindsym $mod+Return exec alacritty
-
-for_window [class="Gucharmap"] move scratchpad, move position 10 430,  set 640 640
-bindsym Mod1+period [class="Gucharmap"] scratchpad show
-bindsym control+Mod1+period exec gucharmap
-
-bindsym $mod+n exec nitrogen
-for_window [class="Nitrogen"] floating enable, move position 450 50, resize set 1020 980
-bindsym $mod+p exec peek
-bindsym $mod+r exec flameshot
-for_window [class="Arcolinux-welcome-app.py"] floating enable
-bindsym $mod+w exec arcolinux-welcome-app
 
 #########################################
 #ᰜᰜᰜᰜᰜᰜ Floating or Tiled ᰜᰜᰜᰜᰜᰜ#
@@ -347,8 +335,7 @@ for_window [class="GParted"] floating enable
 for_window [class="^Gpick$"] floating enable
 for_window [class="Grub-customizer"] floating enable
 for_window [class="Imagewriter|Usb-creator-gtk"] floating enable
-for_window [class="qt5ct|Lxappearance"] floating enable
-for_window [class="Pystopwatch"] floating enable
+for_window [class="qt5ct|Lxappearance"] floating enable, move position 510 160, resize set 900 720
 for_window [class="radeon-profile"] floating enable, move position 480 80, resize set 640 900
 for_window [class="System-config-printer.py"] floating enable
 for_window [class="Xfce4-settings-manager|Xfce4-taskmanager"] floating enable
@@ -375,7 +362,6 @@ exec --no-startup-id parcellite
 # Workrave
 exec --no-startup-id workrave
 # Volume
-# exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
 # Updater
 exec --no-startup-id pamac-tray
@@ -384,9 +370,10 @@ exec --no-startup-id dropbox start
 # Megasync
 exec --no-startup-id megasync
 #PyStopWatch
-exec --no-startup-id pystopwatch
+for_window [class="Pystopwatch"] floating enable
 for_window [class="Pystopwatch"] move scratchpad, resize set 340 129, move position 1570 940
 bindsym Mod1+semicolon [class="Pystopwatch"] scratchpad show
+exec --no-startup-id pystopwatch
 
 #ᰜᰜᰜᰜᰜᰜ Scratchpad ᰜᰜᰜᰜᰜᰜ#
 
@@ -460,6 +447,11 @@ bindsym $mod+a focus parent
 # focus the child "HHVH"
 bindsym $mod+d focus child
 
+##########################################
+#ᰜᰜᰜᰜᰜᰜ Application focus ᰜᰜ ᰜᰜᰜᰜ#
+
+focus_on_window_activation smart
+
 #####################################################
 #ᰜᰜᰜᰜᰜᰜ Workspace Switching Functions ᰜᰜᰜᰜᰜᰜ#
 
@@ -495,18 +487,13 @@ bindsym $mod+Shift+equal move container to workspace $ws12; workspace $ws12
 bindsym $mod+Shift+bracketleft move container to workspace $ws13; workspace $ws13
 bindsym $mod+Shift+bracketright move container to workspace $ws14; workspace $ws14
 
-##########################################
-#ᰜᰜᰜᰜᰜᰜ Application focus ᰜᰜ ᰜᰜᰜᰜ#
-
-focus_on_window_activation smart
-
 ######################################
 #ᰜᰜᰜᰜᰜᰜ Border Control ᰜᰜᰜᰜᰜᰜ#
 
 # default_border normal | none | pixel
-default_border pixel 5
+default_border pixel 4
 # default_floating_border normal | none| pixel
-default_floating_border pixel 5
+default_floating_border pixel 6
 
 # hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders none
@@ -517,10 +504,10 @@ bindsym $mod+t border normal
 bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
-new_window pixel 5
+new_window pixel 4
 # new_window normal | new_window none
 
-new_float pixel 5
+new_float pixel 6
 # new_float normal | none
 
 ##### i3-gaps ##############
@@ -532,7 +519,7 @@ gaps outer 6
 ################# i3-radius #######################
 smart_borders on
 smart_borders no_gaps
-border_radius 10
+border_radius 7
 
 ##############################################
 #ᰜᰜᰜᰜᰜᰜ Variety for Wallpapers ᰜᰜᰜᰜᰜᰜ#
