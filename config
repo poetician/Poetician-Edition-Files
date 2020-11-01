@@ -65,9 +65,9 @@ bindsym $mod+x exec arcolinux-logout
 
 # Resizing by 2
 bindsym $mod+control+Right resize grow width 2 px or 2 ppt
+bindsym $mod+control+Left resize shrink width 2 px or 2 ppt
 bindsym $mod+control+Up resize shrink height 2 px or 2 ppt
 bindsym $mod+control+Down resize grow height 2 px or 2 ppt
-bindsym $mod+control+Left resize shrink width 2 px or 2 ppt
 
 #ᰜᰜᰜᰜᰜᰜ i3 Next Gaps ᰜᰜᰜᰜᰜᰜ#
 # Settings for I3 next gaps https://github.com/Airblader/i3/tree/gaps-next
@@ -81,124 +81,81 @@ smart_borders on
 #ᰜᰜᰜᰜᰜᰜ Resize i3 Gaps ᰜᰜᰜᰜᰜᰜ#
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left current|all set|plus|minus|toggle
 
-bindsym control+Shift+d gaps inner all set 0; gaps outer all set 40
-bindsym control+Shift+f gaps inner all set 0; gaps outer all set 0
-bindsym control+Shift+i gaps inner current plus 10
-bindsym control+Shift+j gaps left current plus 10
-bindsym control+Shift+k gaps left current minus 10
-bindsym control+Shift+l gaps vertical current plus 10
-bindsym control+Shift+m gaps inner all set 5; gaps outer all set 5
-bindsym control+Shift+n gaps inner all set 50; gaps outer all set 0
-bindsym control+Shift+o gaps outer current plus 10
-bindsym control+Shift+minus gaps inner current minus 5
-bindsym control+Shift+plus gaps outer current minus 5
-bindsym control+Shift+comma gaps vertical current minus 5
-bindsym control+Shift+period gaps vertical current plus 5
-bindsym control+Shift+bracketleft gaps horizontal current minus 5
-bindsym control+Shift+bracketright gaps horizontal current plus 10
+bindsym control+Shift+q gaps left current plus 10
+bindsym control+Shift+w gaps left current minus 10
+bindsym control+Shift+a gaps right current plus 10
+bindsym control+Shift+s gaps right current minus 10
+bindsym control+Shift+e gaps top current plus 10
+bindsym control+Shift+d gaps bottom current plus 10
+bindsym control+Shift+r gaps top current minus 10
+bindsym control+Shift+f gaps bottom current minus 10
+bindsym control+Shift+t gaps outer current toggle 40
+bindsym control+Shift+g gaps outer current plus 10
+bindsym control+Shift+b gaps outer current minus 10
+bindsym control+Shift+y gaps outer all set 10
+bindsym control+Shift+h gaps outer all set 20
+bindsym control+Shift+n gaps outer all set 40
+bindsym control+Shift+u gaps vertical current set 20
+bindsym control+Shift+j gaps outer all set 40
+bindsym control+Shift+m gaps outer all set 60
+bindsym control+Shift+i gaps inner all set 5; gaps outer all set 5
+bindsym control+Shift+k gaps inner all set 15; gaps outer all set 15
+bindsym control+Shift+comma gaps inner all set 30; gaps outer all set 30
+bindsym control+Shift+o gaps vertical current plus 10
+bindsym control+Shift+l gaps vertical current minus 10
+bindsym control+Shift+period gaps horizontal current plus 10
+bindsym control+Shift+slash gaps horizontal current minus 10
+bindsym control+Shift+bracketleft gaps all set minus 10
+bindsym control+Shift+bracketright gaps all set plus 10
 bindsym control+Shift+semicolon gaps right current plus 10
 bindsym control+Shift+apostrophe gaps right current minus 10
-bindsym control+Shift+backslash gaps outer current toggle 40
-bindsym control+Shift+u gaps top current plus 20; gaps horizontal all plus 20
-bindsym control+Shift+w gaps inner all set 20; gaps outer all set 30
-bindsym control+Shift+y gaps top current minus 20; gaps horizontal current minus 20
 
 # popup_during_fullscreen smart|ignore|leave_fullscreen
 popup_during_fullscreen leave_fullscreen
 
 ####################################################
-#ᰜᰜᰜᰜᰜᰜ Bar and Workspace Appearance ᰜᰜᰜᰜᰜᰜ#
+#ᰜᰜᰜᰜᰜᰜ Polybar and Workspace Appearance ᰜᰜᰜᰜᰜᰜ#
 
-#ᰜᰜᰜᰜᰜᰜ Bar Toggle ᰜᰜᰜᰜᰜᰜ#
-# Bar toggle, hide or show
-bindsym $mod+b bar mode invisible
-bindsym $mod+m  bar mode dock
-
-# Title font and alignment also used by the bar unless a different font is named in the bar {} block below.
-font pango: Federation italic 12
-title_align center
-
-# Option 1: Polybar
-# Comment out the Bar section and conky, and remove hashtag in the next line to load Polybar; log back in to see the change.
+# Polybar
   exec_always --no-startup-id ~/.config/polybar/launch.sh &
-
-#bar {
-
-# Option 2 : Conky
-    # start-conky-i3statusbar.sh is started and conky will follow
-    # documentation : https://i3wm.org/docs/user-contributed/conky-i3bar.html
-    # the conky configuration is in conky-i3statusbar
-
-#	    status_command ~/.config/i3/start-conky-i3statusbar.sh
-
-#    height 28
-#    workspace_buttons yes
-#    font pango:Federation italic 10
-#    i3bar_command i3bar -t
-#    tray_output HDMI-A-0
-#    position top
-
-#    colors {
-#    background #1a000000
-#    statusline #1a000000
-#    separator  #1a000000
-    #                    border    backgr.     text
-#    focused_workspace    #1a000000 #1a000000   #FFD700
-#    inactive_workspace   #1a000000 #1a000000   #FAEBD7
-#    active_workspace     #1a000000 #1a000000   #d1bea8
-#    urgent_workspace     #1a000000 #1a000000   #b6b9e1
-#    binding_mode         #281948   #000000     #FAEBD7
-#   }
-# }
 
 ##START THEMING
 #Theme name : Raspberry Plants
 
 # class                 border    background text    indicator child-border
-client.placeholder      #1a000000 #000000    #281948 #00000000 #7f2f49
-client.background       #000000
-client.unfocused        #1a000000 #000000    #FFD700 #00000000 #fcc48a
-client.focused          #1a000000 #000000    #B87333 #00000000 #44283D
-client.focused_inactive #1a000000 #000000    #4f433f #00000000 #B2627C
-client.urgent           #11093e   #000000    #a16b1c #000000   #8166E8
+client.placeholder      #00000000 #00000000  #4f433f #00000000 #7f2f49
+client.background       #00000000
+client.unfocused        #00000000 #00000000  #fcc48a #00000000 #fcc48a
+client.focused          #00000000 #00000000  #B87333 #00000000 #44283D
+client.focused_inactive #00000000 #00000000  #4f433f #00000000 #B2627C
+client.urgent           #00000000 #00000000  #a16b1c #000000   #ffffff
 
 ##STOP THEMING
-
-# #4f433f Tudor Brown  #704214 Sepia          #d1bea8 Dark Vanilla #FAEBD7 Antique White
-# #899a99 Pewter       #c0c0c0 Silver         #b2beb5 Ash Grey     #b6b9e1
-# #7C0A02 Barn Red     #cb410b Sinopia        #ffa500 Orange       #ffbf00 Amber #AF3F05 #980E00
-# #cd7f32 Bronze       #B87333 Copper         #FFD700 Gold #       #ffc87c Topaz
-# #568203 Avocado      #2e5e5b Pine           #1f3d0c Deep Forest
-# #556b2f Dark Olive   #013220 Dark Green     #006600 Pakistan
-# #ee82ee Violet       #673147 Old Mauve      #560319 Dark Scarlet
-# #000f89 Phthalo Blue #4c2882 Spanish Violet #6a5acd Slate Blue   #4b0082 Indigo #320069 #8166E8
 
 ###################################################
 #ᰜᰜᰜᰜᰜᰜ Applications and Directives ᰜᰜᰜᰜᰜᰜ#
 
 set $ws1 "1"
 assign [class="firefox|Opera"] $ws1
-for_window [class="firefox|Opera"] focus
+for_window [class="firefox|Opera"]focus
 exec --no-startup-id firefox
 bindsym $mod+F1 exec firefox
-bindsym control+Mod1+o exec opera
-bindsym $mod+o exec opera
 
 set $ws2 "2"
-assign [class="Atom|Electron4|Nemo"] $ws2
-for_window [class="Nemo-terminal-prefs"] floating enable, focus
-bindsym $mod+F2 exec atom ~/.config/i3/config; focus
-exec --no-startup-id nemo; focus
+assign [class="Atom|Nemo"] $ws2
+for_window [class="Atom|Nemo"]focus
+for_window [class="Nemo-terminal-prefs"]focus, floating enable
+bindsym $mod+F2 exec atom ~/.config/i3/config && atom ~/.config/polybar/config && atom ~/.config/jgmenu/jgmenurc
+exec --no-startup-id nemo
 bindsym $mod+Shift+Return exec nemo
 
 set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
-for_window  [class="Cherrytree"] floating enable, resize set 1100 980, move position 20 50
+for_window  [class="Cherrytree"]focus, floating enable, resize set 1100 980, move position 20 50
 exec --no-startup-id cherrytree
 bindsym $mod+control+t exec cherrytree
-for_window [class="Xfce4-dict"] floating enable, resize set 480 980, move position 1180 50
-bindsym Mod1+bracketright [class="Xfce4-dict"] scratchpad show
-bindsym $mod+contrl+d exec xfce4-dict; focus
+for_window [class="Xfce4-dict"]focus, floating enable, resize set 480 980, move position 1180 50
+bindsym $mod+control+d exec xfce4-dict
 
 set $ws4 "4"
 assign [class="libreoffice"] $ws4
@@ -207,11 +164,12 @@ bindsym $mod+F4 exec libreoffice
 
 set $ws5 "5"
 assign [class="kdenlive"] $ws5
+for_window [class="kdenlive"]focus
 bindsym $mod+F5 exec kdenlive
 
 set $ws6 "6"
 assign [class="Gimp-2.10"] $ws6
-for_window [class="Gimp-2.10"] focus
+for_window [class="Gimp-2.10"]focus
 bindsym $mod+F6 exec gimp-2.10
 for_window [instance="script-fu"] border normal
 for_window [title="Copying"] floating enable
@@ -224,31 +182,32 @@ for_window [window_role="setup"] floating enable
 
 set $ws7 "7"
 assign [class="Google Earth Pro"] $ws7
-for_window [class="Google Earth Pro"] focus
+for_window [class="Google Earth Pro"]focus
 bindsym $mod+F7 exec google-earth-pro
 
 set $ws8 "8"
 assign [class="Audio Recorder|obs"] $ws8
 for_window [class="Audio Recorder"] floating enable, move position 2860 40
-for_window [class="obs"] focus
+for_window [class="obs"]focus
 bindsym $mod+F8 exec obs
 
 set $ws9 "9"
 assign [class="Meld"] $ws9
-for_window [class="Meld"] focus, floating enable, resize set 1912 1010, move position 1924 37
+for_window [class="Meld"]focus, floating enable, resize set 1912 1008, move position 1924 36
 exec --no-startup-id meld
 bindsym $mod+F9 exec meld
 
 set $ws10 "10"
 assign [class="VirtualBox|VirtualBox Manager|VirtualBox Machine"] $ws10
-for_window [class="VirtualBox Machine|VirtualBox Manager"] floating disable
+for_window [class="VirtualBox Machine|VirtualBox Manager"]focus, floating disable
+for_window [class="VirtualBox"] move position 1920 480
 exec --no-startup-id virtualbox manager
-bindsym $mod+F10 exec virtualbox manager; focus
+bindsym $mod+F10 exec virtualbox manager
 
 set $ws11 "11"
 assign [class="Arcolinux-tweak-tool.py|Blender"] $ws11
-for_window [class="Arcolinux-tweak-tool.py"] floating enable, resize set 800 800, move position 2480 140
-bindsym control+Shift+t exec arcolinux-tweak-tool, focus
+for_window [class="Arcolinux-tweak-tool.py"]focus, floating enable, resize set 800 800, move position 2480 140
+bindsym $mod+control+e exec arcolinux-tweak-tool
 bindsym $mod+control+b exec blender
 
 set $ws12 "12"
@@ -256,7 +215,8 @@ assign [class="qBittorrent|Timeshift-gtk|Transmission-gtk"] $ws12
 for_window [class="Timeshift-gtk"] floating enable, move position 1940 60, resize set 800 950
 for_window [class="Transmission-gtk"] floating enable, move position 2820 60, resize set 900 480
 for_window [class="qBittorrent"] floating enable, move position 2780 60, resize set 1040 950
-bindsym Mod1+q exec --no-startup-id sudo timeshift-gtk
+bindsym $mod+F11 exec timeshift-launcher
+bindsym $mod+F12 exec qbittorrent
 exec --no-startup-id qbittorrent
 
 set $ws13 "13"
@@ -271,8 +231,11 @@ bindsym $mod+F3 exec vlc
 
 set $ws14 "14"
 assign [class="Virt-manager|Oomox|__main__.py"] $ws14
-for_window [class="Virt-machine"] floating disable; focus
-bindsym $mod+control+o exec oomox-gui
+for_window [class="Virt-machine"]focus, floating disable
+for_window [class="Oomox"]focus, floating enable, resize set 1405 970, move position 1930 50
+for_window [class="Lxappearance"]focus, floating enable, move position 3050 95, resize set 785 720
+bindsym $mod+l exec lxappearance
+bindsym $mod+o exec oomox-gui
 bindsym $mod+control+v exec virt-manager
 
 #############################################
@@ -290,7 +253,7 @@ bindsym $mod+control+r exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
 # Pamac-Manager
-for_window [class="Pamac-manager"] floating enable, move position 510 80, resize set 900 600
+for_window [class="Pamac-manager"] floating enable, move position 510 80, resize set 800 700
 bindsym control+mod1+g exec --no-startup-id pamac-manager
 # Settings
 bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
@@ -302,6 +265,7 @@ bindsym Mod1+comma [class="Alacritty"] scratchpad show
 bindsym $mod+Return exec alacritty
 for_window [class="Arcolinux-welcome-app.py"] floating enable
 bindsym $mod+w exec arcolinux-welcome-app
+bindsym $mod+control+f exec catfish; focus
 bindsym $mod+r exec flameshot
 for_window [class="Gnome-calendar"] resize set 844 800, move position 24 54
 bindsym $mod+control+a exec gnome-calendar
@@ -310,10 +274,11 @@ bindsym Mod1+period [class="Gucharmap"] scratchpad show
 bindsym control+Mod1+period exec gucharmap
 for_window [class="Kvantum Manager"] floating enable
 bindsym $mod+k exec kvantummanager
-bindsym $mod+l exec lxappearance
 bindsym $mod+n exec nitrogen
-for_window [class="Nitrogen"] floating enable, move position 900 110, resize set 920 820
+for_window [class="Nitrogen"] floating enable, move position 1040 110, resize set 800 880
 bindsym $mod+p exec peek
+for_window [class="qt5ct"] floating enable, move position 510 160, resize set 900 720
+bindsym $mod+control+q exec qt5ct
 for_window [class="Shutter"] floating enable
 bindsym $mod+control+s exec shutter
 bindsym Print exec --no-startup-id scrot ' -%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
@@ -324,19 +289,15 @@ bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
 #########################################
 #ᰜᰜᰜᰜᰜᰜ Floating or Tiled ᰜᰜᰜᰜᰜᰜ#
 
-for_window [class="Create Snapshot"] floating enable
 for_window [class="Engrampa"] floating enable
 for_window [class="File-roller"] floating enable
 for_window [class="Font-manager"] floating enable
-for_window [class="FSlint"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="Gnome-calendar|Gnome-disks|^Gnome-font-viewer$"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="^Gpick$"] floating enable
 for_window [class="Grub-customizer"] floating enable
 for_window [class="Imagewriter|Usb-creator-gtk"] floating enable
-for_window [class="qt5ct|Lxappearance"] floating enable, move position 510 160, resize set 900 720
-for_window [class="radeon-profile"] floating enable, move position 480 80, resize set 640 900
 for_window [class="System-config-printer.py"] floating enable
 for_window [class="Xfce4-settings-manager|Xfce4-taskmanager"] floating enable
 
@@ -367,13 +328,11 @@ exec --no-startup-id volumeicon
 exec --no-startup-id pamac-tray
 # Dropbox
 exec --no-startup-id dropbox start
-# Megasync
-exec --no-startup-id megasync
-#PyStopWatch
-for_window [class="Pystopwatch"] floating enable
-for_window [class="Pystopwatch"] move scratchpad, resize set 340 129, move position 1570 940
-bindsym Mod1+semicolon [class="Pystopwatch"] scratchpad show
-exec --no-startup-id pystopwatch
+#Stopwatch
+for_window [class="Stopwatch"] floating enable
+for_window [class="Stopwatch"] move scratchpad, resize set 360 240, move position 900 600
+bindsym Mod1+semicolon [class="Stopwatch"] scratchpad show
+exec --no-startup-id stopwatch
 
 #ᰜᰜᰜᰜᰜᰜ Scratchpad ᰜᰜᰜᰜᰜᰜ#
 
@@ -401,6 +360,10 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# Open next workspace in order / Move container to next workspace
+bindsym $mod+Shift+n exec --no-startup-id ~/Data/i3-next-available-workspace/next_available_ws.sh
+bindsym $mod+Shift+m exec --no-startup-id ~/Data/i3-next-available-workspace/next_available_ws.sh -m  # move container to new window
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Navigating Workspaces ᰜᰜᰜᰜᰜᰜ#
@@ -558,7 +521,7 @@ bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wal
 #########################################################################################
 
 # All these words are empty baskets
-# Carried to the market square
+# Carried to the market sqwuare
 # Trading truth and lies in barter
 # Warranting warn buyer beware
 
