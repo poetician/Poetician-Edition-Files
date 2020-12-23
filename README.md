@@ -1,4 +1,4 @@
-# Poetician-Edition-Files
+# Poetician-Edition-Themes
 
 Files that belong to my i3 configuration in a poorly formatted readme.
 
